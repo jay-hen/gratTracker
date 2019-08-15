@@ -1,7 +1,10 @@
 package com.jesshenry.grattracker.Controllers;
 
+import com.jesshenry.grattracker.Models.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 @Controller
 public class GratController {
@@ -12,9 +15,9 @@ public class GratController {
         return "index";
     }
 
-    @RequestMapping(value = "week")
-    public String week() {
-
+    @RequestMapping(value = "week", method = RequestMethod.GET)
+    public String week(@SessionAttribute("user") User user) {
+        System.out.println(user);
         return "week";
     }
 

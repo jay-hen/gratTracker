@@ -9,35 +9,37 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 @Controller
+@SessionAttributes("user")
 public class UserController {
 
     @Autowired
     private UserDao userDao;
 
+    @ModelAttribute("user")
     @RequestMapping(value = "login", method = RequestMethod.GET)
-    public String login(Model model) {
+    public String displayLogin(Model model) {
+
         model.addAttribute("title", "Log In!");
+        model.addAttribute("user", new User());
+
         return "login";
     }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    public String login(Model model, HttpServletRequest request,
-                        HttpServletResponse response) {
+    public String processLogin(Model model, @ModelAttribute("user") User user) {
 
-        model.addAttribute("title", "Log In!");
-
-        if(request.getParameter("id").equals(userDao.findAll())) {
+        if (user.getUsername().equals("Jay") && user.getPassword().equals("mabeldog")) {
             return "week";
         }
 
-        return "redirect:";
+        return "login";
     }
+
 
     @RequestMapping(value = "signup", method = RequestMethod.GET)
     public String displaySignup(Model model) {

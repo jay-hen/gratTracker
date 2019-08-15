@@ -31,13 +31,15 @@ public class UserController {
     }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    public String processLogin(Model model, @ModelAttribute("user") User user) {
+    public String processLogin(@ModelAttribute("user") User user, Model model) {
 
         if (user.getUsername().equals("Jay") && user.getPassword().equals("mabeldog")) {
-            return "week";
+            user.setUsername("Jay");
+        } else {
+            return "login";
         }
 
-        return "login";
+        return "week";
     }
 
 

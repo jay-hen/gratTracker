@@ -11,11 +11,11 @@ public class Grat {
     @GeneratedValue
     private int id;
 
-    private Double totalTips;
+    private Double totalTips = 00.00;
 
-    public Grat(Double totalTips) {
-        this.totalTips= totalTips;
-    }
+    private Double hoursWorked = 00.00;
+
+    public Grat() { }
 
     public int getId() {
         return id;
@@ -31,5 +31,13 @@ public class Grat {
 
     public void setTotalTips(Double totalTips) {
         this.totalTips = totalTips;
+    }
+
+    public Double getHoursWorked() {
+        return hoursWorked;
+    }
+
+    public void setHoursWorked(Double hoursWorked) {
+        this.hoursWorked = hoursWorked;
     }
 }

@@ -28,7 +28,7 @@ public class GratController {
     public String displayAdd(Model model) {
 
         model.addAttribute("title", "Add Data!");
-        model.addAttribute("grat", new Grat(00.00));
+        model.addAttribute("grat", new Grat());
 
         return "add";
     }

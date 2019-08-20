@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -31,17 +28,15 @@ public class UserController {
     }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    public String processLogin(@ModelAttribute("user") User user, Model model) {
-
-        if (user.getUsername().equals("Jay") && user.getPassword().equals("mabeldog")) {
-            user.setUsername("Jay");
+    public String processLogin(@RequestParam String username, @RequestParam String password, Model model) {
+        System.out.println("IM HEREEEE!!!" + username);
+        if (username.equals("Jay") && password.equals("mabeldog")) {
+            return "week";
+//            user.setUsername("Jay");
         } else {
             return "login";
         }
-
-        return "week";
     }
-
 
     @RequestMapping(value = "signup", method = RequestMethod.GET)
     public String displaySignup(Model model) {
@@ -63,4 +58,6 @@ public class UserController {
         userDao.save(user);
         return "redirect:";
     }
+
+
 }

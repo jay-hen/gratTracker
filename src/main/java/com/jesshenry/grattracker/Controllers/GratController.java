@@ -1,13 +1,22 @@
 package com.jesshenry.grattracker.Controllers;
 
-import com.jesshenry.grattracker.Models.User;
+import com.jesshenry.grattracker.Models.Grat;
+import com.jesshenry.grattracker.Models.data.GratDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttribute;
+
+import javax.validation.Valid;
 
 @Controller
 public class GratController {
+
+    @Autowired
+    private GratDao gratDao;
 
     @RequestMapping(value = "")
     public String index() {
@@ -15,16 +24,23 @@ public class GratController {
         return "index";
     }
 
-    @RequestMapping(value = "week", method = RequestMethod.GET)
-    public String week(@SessionAttribute("user") User user) {
-        System.out.println(user);
-        return "week";
-    }
+    @RequestMapping(value = "add", method = RequestMethod.GET)
+    public String displayAdd(Model model) {
 
-    @RequestMapping(value = "add")
-    public String add() {
+        model.addAttribute("title", "Add Data!");
+        model.addAttribute("grat", new Grat(00.00));
 
         return "add";
     }
 
+    @RequestMapping(value = "add", method = RequestMethod.POST)
+    public String processAdd(Model model, @ModelAttribute @Valid Grat grat, Errors errors) {
+        if (errors.hasErrors()) {
+            model.addAttribute("title", "Sign Up!");
+            return "add";
+        }
+
+        gratDao.save(grat);
+        return "week";
+    }
 }

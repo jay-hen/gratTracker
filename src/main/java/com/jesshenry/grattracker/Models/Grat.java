@@ -11,9 +11,13 @@ public class Grat {
     @GeneratedValue
     private int id;
 
+    private String hoursWorked;
+
+    private Double hourlyWage = 00.00;
+
     private Double totalTips = 00.00;
 
-    private Double hoursWorked = 00.00;
+    private String shiftNotes;
 
     public Grat() { }
 
@@ -25,6 +29,22 @@ public class Grat {
         this.id = id;
     }
 
+    public String getHoursWorked() {
+        return hoursWorked;
+    }
+
+    public void setHoursWorked(String hoursWorked) {
+        this.hoursWorked = hoursWorked;
+    }
+
+    public Double getHourlyWage() {
+        return hourlyWage;
+    }
+
+    public void setHourlyWage(Double hourlyWage) {
+        this.hourlyWage = hourlyWage;
+    }
+
     public double getTotalTips() {
         return totalTips;
     }
@@ -33,11 +53,11 @@ public class Grat {
         this.totalTips = totalTips;
     }
 
-    public Double getHoursWorked() {
-        return hoursWorked;
+    public String getShiftNotes() {
+        return shiftNotes;
     }
 
-    public void setHoursWorked(Double hoursWorked) {
-        this.hoursWorked = hoursWorked;
+    public void setShiftNotes(String shiftNotes) {
+        this.shiftNotes = shiftNotes;
     }
 }

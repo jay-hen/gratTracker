@@ -36,7 +36,7 @@ public class GratController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAdd(Model model, @ModelAttribute @Valid Grat grat, Errors errors) {
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Sign Up!");
+            model.addAttribute("title", "Add Data!");
             return "add";
         }
 

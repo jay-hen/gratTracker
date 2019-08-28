@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Log In!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
 </head>
 <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
     <nav th:replace="fragments :: navigation"></nav>
 
     <h1>GratTracker</h1>
     <h3>Keep tabs on your tips!</h3>
     <br/>
+
     <div class="inner">
         <center>
             <form action="#" th:action="@{/signup}" th:object="${user}" method="post">
@@ -25,7 +28,8 @@
                     <input id="verify" type="password" value="verify" name="verify"/>
                 </label>
                     <p class="error">{{verify_error}}</p>
-                <input type="submit"/>
+                <button class="ui basic huge olive button" type="submit">Submit</button>
+
             </form>
         </center>
     </div>

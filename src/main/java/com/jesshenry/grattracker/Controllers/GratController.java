@@ -43,4 +43,9 @@ public class GratController {
         gratDao.save(grat);
         return "week";
     }
+
+//    @RequestMapping(value = "gratchart", method = RequestMethod.GET)
+//    public String displayChart() {
+//        GratChart gratChart = new gratChart();
+//    }
 }

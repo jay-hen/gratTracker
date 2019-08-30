@@ -2,19 +2,28 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Log In!</title>
+    <title>Add Gratuity!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
 </head>
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
     <nav th:replace="fragments :: navigation"></nav>
 
-    <h1>GratTracker</h1>
-    <h3>Keep tabs on your tips!</h3>
-        <br/>
-    <div class="inner">
-        <center>
-            <form class="ui raised segment form" action="#" th:action="@{/add}" th:object="${grat}" method="post">
+    <center>
+        <h1 class="ui icon header">
+            <i class="money bill alternate outline icon"></i>
+            <div class="content">
+                GratTracker
+                <div class="sub header">Keep tabs on your tips!</div>
+            </div>
+        </h1>
+    </center>
+
+    <br/>
+    <center>
+        <div class="inner">
+            <form class="ui raised compact very padded segment form" action="#" th:action="@{/add}" th:object="${grat}"
+                  method="post">
                 <label>Date:
                     <input id="date" type="date" value="date" name="date" />
                 </label>
@@ -34,10 +43,11 @@
                     <p class="error">{{totalTips_error}}</p>
                 <textarea id="notes" name="notes" th:field="*{shiftNotes}" placeholder="Shift notes..." rows="5"
                       cols="33"></textarea>
-                    <br/>
-                <button class="ui basic huge olive button" type="submit">Submit</button>
-                </form></center>
-</div>
+                    <br/><br/>
+                <button class="ui basic olive button" type="submit">Submit</button>
+                </form>
+        </div>
+    </center>
 
 </body>
 </html>

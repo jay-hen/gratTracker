@@ -2,36 +2,49 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Log In!</title>
+    <title>Sign Up!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
 </head>
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
     <nav th:replace="fragments :: navigation"></nav>
 
-    <h1>GratTracker</h1>
-    <h3>Keep tabs on your tips!</h3>
+    <center>
+        <h1 class="ui icon header">
+            <i class="money bill alternate outline icon"></i>
+            <div class="content">
+                GratTracker
+                <div class="sub header">Keep tabs on your tips!</div>
+            </div>
+        </h1>
+    </center>
+
     <br/>
 
-    <div class="inner">
         <center>
-            <form action="#" th:action="@{/signup}" th:object="${user}" method="post">
-                <label>Username:
-                    <input id="username" type="text" th:field="*{username}" value="username" name="username"/>
-                </label>
+            <form class="ui raised compact very padded segment form" action="#" th:action="@{/signup}"
+                  th:object="${user}" method="post">
+                <div class="field">
+                    <label>Username:
+                        <input id="username" type="text" th:field="*{username}" value="username" name="username"/>
+                    </label>
+                </div>
                     <p class="error">{{name_error}}</p>
-                <label>Password:
-                    <input id="password" type="password" th:field="*{password}" value="password" name="password"/>
-                </label>
+                <div class="field">
+                    <label>Password:
+                        <input id="password" type="password" th:field="*{password}" value="password" name="password"/>
+                    </label>
+                </div>
                     <p class="error">{{password_error}}</p>
-                <label>Verify password:
-                    <input id="verify" type="password" value="verify" name="verify"/>
-                </label>
+                <div class="field">
+                    <label>Verify password:
+                        <input id="verify" type="password" value="verify" name="verify"/>
+                    </label>
+                </div>
                     <p class="error">{{verify_error}}</p>
-                <button class="ui basic huge olive button" type="submit">Submit</button>
+                <button class="ui basic olive button" type="submit">Submit</button>
 
             </form>
         </center>
-    </div>
 </body>
 </html>

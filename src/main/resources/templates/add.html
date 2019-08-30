@@ -3,40 +3,40 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Log In!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
 </head>
 <body>
-<nav th:replace="fragments :: navigation"></nav>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <nav th:replace="fragments :: navigation"></nav>
 
-<h1>GratTracker</h1>
-<h3>Keep tabs on your tips!</h3>
-<br/>
-<div class="inner">
-    <center>
-    <form action="#" th:action="@{/add}" th:object="${grat}" method="post">
-        <label>Date:
-            <input id="date" type="date" value="date" name="date" />
-        </label>
-            <p class="error">{{date_error}}</p>
-        <label>Hours Worked:
-        </label>
-        <input id="hoursWorked" type="text" th:field="*{hoursWorked}" value="hoursWorked" name="hoursWorked" />
-        <p class="error">{{hoursWorked_error}}</p>
-        <label>Hourly Wage:
-            <input id="hourlyWage" type="number" th:field="*{hourlyWage}" min="0.00" max="10000.00" step="0.01"
-                   value="hourlyWage" name="hourlyWage"/>
-        </label>
-        <p class="error">{{hourlyWage_error}}</p>
-        <label>Total Tips:
-            <input id="totalTips" type="number" min="0.00" max="10000.00" step="0.01" th:field="*{totalTips}"
-                   value="totalTips"
-                   name="totalTips"/>
-        </label>
-        <p class="error">{{totalTips_error}}</p>
-            <textarea id="notes" name="notes" th:field="*{shiftNotes}" placeholder="Shift notes..." rows="5"
-                      cols="33"></textarea>
+    <h1>GratTracker</h1>
+    <h3>Keep tabs on your tips!</h3>
         <br/>
-        <input type="submit" />
-    </form></center>
+    <div class="inner">
+        <center>
+            <form class="ui raised segment form" action="#" th:action="@{/add}" th:object="${grat}" method="post">
+                <label>Date:
+                    <input id="date" type="date" value="date" name="date" />
+                </label>
+                    <p class="error">{{date_error}}</p>
+                <label>Hours Worked:
+                    <input id="hoursWorked" type="text" th:field="*{hoursWorked}" value="hoursWorked" name="hoursWorked" />
+                </label>
+                    <p class="error">{{hoursWorked_error}}</p>
+                <label>Hourly Wage:
+                    <input id="hourlyWage" type="number" th:field="*{hourlyWage}" min="0.00" max="10000.00" step="0.01" value="hourlyWage" name="hourlyWage"/>
+                </label>
+                    <p class="error">{{hourlyWage_error}}</p>
+                <label>Total Tips:
+                    <input id="totalTips" type="number" min="0.00" max="10000.00" step="0.01" th:field="*{totalTips}"
+                   value="totalTips" name="totalTips"/>
+                </label>
+                    <p class="error">{{totalTips_error}}</p>
+                <textarea id="notes" name="notes" th:field="*{shiftNotes}" placeholder="Shift notes..." rows="5"
+                      cols="33"></textarea>
+                    <br/>
+                <button class="ui basic huge olive button" type="submit">Submit</button>
+                </form></center>
 </div>
 
 </body>

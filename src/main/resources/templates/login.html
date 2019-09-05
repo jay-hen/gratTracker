@@ -17,12 +17,17 @@
                 <div class="sub header">Keep tabs on your tips!</div>
             </div>
         </h1>
-    </center>
 
-    <br/>
+        <br/>
 
-    <center>
-        <form class="ui raised compact very padded segment form" action="/login" method="post">
+        <div th:if="${param.error}">
+            Invalid username and/or password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+
+        <form class="ui raised compact very padded segment form" th:action="@{/login}" method="post">
             <div class="field">
                 <label>Name:
                     <input type="text" name="username"/>
@@ -33,23 +38,8 @@
                     <input type="password" name="password"/>
                 </label>
             </div>
-            <button class="ui basic olive button" type="submit">Submit</button>
+            <button class="ui olive button" type="submit">Submit</button>
         </form>
     </center>
-
-    <!--    <div class="inner">-->
-<!--        <center>-->
-<!--            <form action="#" th:action="@{/login}" th:object="${user}" method="post">-->
-<!--            <label>Username:-->
-<!--                <input id="username" type="text" th:field="*{username}" value="username" name="username"/>-->
-<!--            </label>-->
-<!--                <p class="error">{{name_error}}</p>-->
-<!--            <label>Password:-->
-<!--                <input id="password" type="password" th:field="*{password}" value="password" name="password"/>-->
-<!--            </label>-->
-<!--                <p class="error">{{password_error}}</p>-->
-<!--            <input type="submit" />-->
-<!--        </form></center>-->
-<!--    </div>-->
 </body>
 </html>

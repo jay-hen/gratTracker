@@ -30,12 +30,13 @@ public class UserController {
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String processLogin(@RequestParam String username, @RequestParam String password, Model model) {
         System.out.println("IM HEREEEE!!!" + username);
-        if (username.equals("Jay") && password.equals("mabeldog")) {
-            return "week";
-//            user.setUsername("Jay");
-        } else {
-            return "login";
-        }
+//        if (username.equals("Jay") && password.equals("mabeldog")) {
+//            return "week";
+////            user.setUsername("Jay");
+//        } else {
+//            return "login";
+//        }
+        return "week";
     }
 
     @RequestMapping(value = "signup", method = RequestMethod.GET)
@@ -57,6 +58,12 @@ public class UserController {
 
         userDao.save(user);
         return "redirect:";
+    }
+
+    @RequestMapping(value = "week", method = RequestMethod.GET)
+    public String week() {
+
+        return "week";
     }
 
 

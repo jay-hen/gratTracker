@@ -33,10 +33,12 @@ dependencies {
 	compile 'org.springframework.boot:spring-boot-starter-web'
 	compile  'org.springframework.boot:spring-boot-starter-data-jpa'
 	compile 'mysql:mysql-connector-java'
+	compile 'org.springframework.security:spring-security-web:4.1.1.RELEASE'
+	compile 'org.springframework.security:spring-security-config:4.1.1.RELEASE'
 //	At some point changed 37 from DevelopmentOnly to Runtime
 	runtime 'org.springframework.boot:spring-boot-devtools'
 	testCompile 'org.springframework.boot:spring-boot-starter-test'
-//	compile("org.springframework.boot:spring-boot-starter-security")
+	compile 'org.springframework.boot:spring-boot-starter-security'
 
 }
 
